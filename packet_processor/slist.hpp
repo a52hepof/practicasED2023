@@ -11,6 +11,7 @@
 #include <iostream>
 #include <memory>
 
+
 /** @brief a single link node.*/
 template <class T>
 class SNode

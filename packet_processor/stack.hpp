@@ -12,7 +12,6 @@
 #include <iostream>
 
 #include "slist.hpp"
-
 /**
  * @brief ADT Stack.
  * Models a Stack using a single linked list*
@@ -100,7 +99,7 @@ class Stack
 
 protected:
 
-  typename SList<T>::Ref l_;
+  typename SList<T>::Ref _l;
 
 };
 
