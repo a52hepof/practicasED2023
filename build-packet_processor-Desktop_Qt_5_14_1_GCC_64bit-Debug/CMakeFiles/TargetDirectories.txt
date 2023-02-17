@@ -1,0 +1,6 @@
+/home/a52hepof/asignaturas/segundo/2t/ED_2023/build-packet_processor-Desktop_Qt_5_14_1_GCC_64bit-Debug/CMakeFiles/test_slist.dir
+/home/a52hepof/asignaturas/segundo/2t/ED_2023/build-packet_processor-Desktop_Qt_5_14_1_GCC_64bit-Debug/CMakeFiles/test_stack.dir
+/home/a52hepof/asignaturas/segundo/2t/ED_2023/build-packet_processor-Desktop_Qt_5_14_1_GCC_64bit-Debug/CMakeFiles/test_queue.dir
+/home/a52hepof/asignaturas/segundo/2t/ED_2023/build-packet_processor-Desktop_Qt_5_14_1_GCC_64bit-Debug/CMakeFiles/test_packet_processor.dir
+/home/a52hepof/asignaturas/segundo/2t/ED_2023/build-packet_processor-Desktop_Qt_5_14_1_GCC_64bit-Debug/CMakeFiles/edit_cache.dir
+/home/a52hepof/asignaturas/segundo/2t/ED_2023/build-packet_processor-Desktop_Qt_5_14_1_GCC_64bit-Debug/CMakeFiles/rebuild_cache.dir

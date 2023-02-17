@@ -1,0 +1,6 @@
+/home/fernando/Escritorio/101_git/ED/practicas/packet_processor/build-Release/CMakeFiles/test_slist.dir
+/home/fernando/Escritorio/101_git/ED/practicas/packet_processor/build-Release/CMakeFiles/test_stack.dir
+/home/fernando/Escritorio/101_git/ED/practicas/packet_processor/build-Release/CMakeFiles/test_queue.dir
+/home/fernando/Escritorio/101_git/ED/practicas/packet_processor/build-Release/CMakeFiles/test_packet_processor.dir
+/home/fernando/Escritorio/101_git/ED/practicas/packet_processor/build-Release/CMakeFiles/edit_cache.dir
+/home/fernando/Escritorio/101_git/ED/practicas/packet_processor/build-Release/CMakeFiles/rebuild_cache.dir
