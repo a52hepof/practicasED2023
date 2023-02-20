@@ -19,7 +19,8 @@ template <class T>
 SNode<T>::SNode (T const& it)
 {
     //TODO
-
+    _item = it;
+    _next = nullptr;
     //
     assert(!has_next());
 }
@@ -28,7 +29,8 @@ template <class T>
 SNode<T>::SNode (T const& it, SNode<T>::Ref& next)
 {
     //TODO
-
+    _item = it;
+    _next = next;
     //
 }
 
@@ -52,7 +54,7 @@ T SNode<T>::item() const
 {
     T it;
     //TODO
-
+    it = _item;
     //
     return it;
 }
@@ -62,7 +64,7 @@ bool SNode<T>::has_next() const
 {
     bool has = false;
     //TODO
-
+    has = (_next != nullptr);
     //
     return has;
 }
@@ -72,7 +74,7 @@ typename SNode<T>::Ref SNode<T>::next() const
 {
     SNode<T>::Ref n;
     //TODO
-
+    n = _next;
     //
     return n;
 }
@@ -81,7 +83,7 @@ template <class T>
 void SNode<T>::set_item(const T& new_it)
 {
     //TODO
-
+    _item = new_it;
     //
     assert(item()==new_it);
 }
@@ -90,7 +92,7 @@ template <class T>
 void SNode<T>::set_next(SNode<T>::Ref n)
 {
     //TODO
-
+    _next = n;
     //
     assert(n == next());
 }
