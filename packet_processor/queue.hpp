@@ -22,7 +22,7 @@ class Queue
 {
   public:
 
-  /** @name Life cicle.*/
+  /** @name Life cycle.*/
   /** @{*/
 
   /** @brief Create an empty Queue.

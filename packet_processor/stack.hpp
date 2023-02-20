@@ -12,6 +12,7 @@
 #include <iostream>
 
 #include "slist.hpp"
+
 /**
  * @brief ADT Stack.
  * Models a Stack using a single linked list*
@@ -27,7 +28,7 @@ class Stack
      */
     typedef std::shared_ptr< Stack<T> > Ref;
 
-  /** @name Life cicle.*/
+  /** @name Life cycle.*/
   /** @{*/
 
   /** @brief Create an empty Stack.
@@ -37,14 +38,14 @@ class Stack
 
   /**
    * @brief Create a Stack using dynamic memory.
-   * @return a shared referente to the new stack.
+   * @return a shared reference to the new stack.
    */
   static typename Stack<T>::Ref create();
 
   /**
    * @brief Create a Stack from an input stream.
    * The input format is the same of a single list.
-   * @return a shared referente to the new stack.
+   * @return a shared reference to the new stack.
    * @warning throw std::runtime_error if wrong input format.
    */
   static typename Stack<T>::Ref create(std::istream & in) noexcept(false);
@@ -99,7 +100,7 @@ class Stack
 
 protected:
 
-  typename SList<T>::Ref _l;
+  typename SList<T>::Ref l_;
 
 };
 

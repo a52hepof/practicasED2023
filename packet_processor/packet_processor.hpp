@@ -15,7 +15,7 @@
 
 
 /** @brief Models a Packet.
- * We are only interesed in the arrival time and
+ * We are only interested in the arrival time and
  * how much time is spent to be processed.
 */
 struct Packet {
@@ -31,7 +31,7 @@ struct Packet {
     int process_time;
 };
 
-/** @brief Models the response to a incomming packet.
+/** @brief Models the response to a incoming packet.
  * The package can be processed at any given time or be dropped if the
  * processor buffer is full at the time of arrival.
 */
