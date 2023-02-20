@@ -11,7 +11,6 @@
 #include <iostream>
 #include <memory>
 
-
 /** @brief a single link node.*/
 template <class T>
 class SNode
@@ -25,7 +24,7 @@ public:
      */
     typedef std::shared_ptr< SNode<T> > Ref;
 
-    /** @name Life cicle.*/
+    /** @name Life cycle.*/
     /** @{*/
 
     /** @brief Create a node.
@@ -44,7 +43,7 @@ public:
      * @brief Create a SNode using dynamic memory.
      * @param it the value save in the node.
      * @param next link to the next node.
-     * @return a shared referente to the new node.
+     * @return a shared reference to the new node.
      */
     static typename SNode<T>::Ref create(T const& it,
                                          SNode<T>::Ref next=nullptr);
@@ -102,7 +101,7 @@ class SList
      */
     typedef std::shared_ptr< SList<T> > Ref;
 
-  /** @name Life cicle.*/
+  /** @name Life cycle.*/
   /** @{*/
 
   /** @brief Create an empty SList.
@@ -115,20 +114,20 @@ class SList
 
   /**
    * @brief Create a SList using dynamic memory.
-   * @return a shared referente to the new slist.
+   * @return a shared reference to the new slist.
    */
   static typename SList<T>::Ref create();
 
   /**
-   * @brief Create a SList unfoldig from an input stream.
+   * @brief Create a SList unfolding from an input stream.
    *
    * The input format will be "[]" for the empty list
    * or "[" item1 item2 ... item_n "]" where item1 is the head.
    *
    * @param in is the input stream.
    * @warning if the input format is not correct a std::runtime_error with
-   * what message "Wrong input format." will be reaised.
-   * @return A shared referente to the new slist.
+   * what message "Wrong input format." will be raised.
+   * @return A shared reference to the new slist.
    */
   static typename SList<T>::Ref create(std::istream& in) noexcept(false);
 
@@ -282,19 +281,10 @@ protected:
    */
   typename SNode<T>::Ref head() const;
 
-  /**
-   * @brief Get a reference to the current node.
-   * @return a reference to the current node.
-   */
-  typename SNode<T>::Ref curr() const;
-
   //TODO
   //Give a representation using a simple linked list of nodes.
   //We want a size() operation with O(1).
-  typename SNode<T>::Ref _head;
-  typename SNode<T>::Ref _cursor;
-  size_t _size;
-  //size_t _items;
+
   //
 };
 

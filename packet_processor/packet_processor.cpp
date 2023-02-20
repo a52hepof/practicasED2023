@@ -8,7 +8,7 @@
  */
 
 #include "packet_processor.hpp"
-#include "queue_imp.hpp"
+
 
 PacketProcessor::PacketProcessor(size_t size):
     _max_size(size),
@@ -24,12 +24,16 @@ Response PacketProcessor::process(const Packet &packet)
 
     //
     //Second: Is there any place for this packet in the queue?
-    //This packet will be processed after the last paquete will do,
-    //and the its finish time will be 'packets's process_time' units after.
-    //Remenber that the queue holds the finish processing time for the packets.
-
-
+    if (_finish_time.size()<_max_size)
+    {
+    //This packet will be processed after the last packet is processed and
+    //its completion time will be 'package processing time' later time units.
+    //Remember that the queue saves the finish processing time for the packets.
+    //Remember to update the returned response.
+        
+        
     //
+    }
     return ret;
 }
 

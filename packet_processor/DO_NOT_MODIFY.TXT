@@ -58,7 +58,7 @@ ad91a57307d339460d5045cc1b68fc06  ./tests_packet_processor/16.a
 fd2ec13c86a312ac6bac892390c1a15e  ./tests_packet_processor/00.a
 21abf32bd9e8abdac7fc9cea333102d9  ./tests_packet_processor/14
 f8b8a9a11511899d12942517c5cfa975  ./test_stack.cpp
-927f5ddf87735401fee2b1835aeda585  ./packet_processor.hpp
+324399e5611ca32ef29d8030ef67a650  ./packet_processor.hpp
 cc534714b4ceeb9ac5b1282955021ceb  ./test_queue.cpp
 42dfc1fe423aa16ff4465140bd8387ea  ./tests_slist_fold_unfold/00
 cdf2a69dd8888d377ce1da6fee1c72e2  ./tests_slist_fold_unfold/01
@@ -70,7 +70,7 @@ ea5d2667c1ffe2828182c4401e114cac  ./tests_slist_fold_unfold/03.a
 959761ceb61c57e22a8b71310ad31506  ./tests_slist_fold_unfold/01.a
 5644843edacbb70906786cf645508a21  ./tests_slist_fold_unfold/02
 6f39fd3f28352fa8d5cbf8296f3cb8ef  ./tests_slist_fold_unfold/00.a
-55326508a06ba5b97457bc0e3ee287d6  ./queue.hpp
+582d79d5d6c23f2313262f263a972367  ./queue.hpp
 21f9bd8562fc5e080e888a89fa5daca0  ./run_tests.sh
 889eeeade1c9288975fbeb09c50bc093  ./tests_queue/00
 cfe760cecb092a4e98ebd42aa4a116cd  ./tests_queue/01
@@ -84,10 +84,10 @@ e2df9a3bf14450b73350b796e7874f8d  ./tests_queue/03
 b93f03fda799fd428d2470aa40686eeb  ./tests_queue/01.a
 7a623aaf9b24f0f637f542f3aa1c83ad  ./tests_queue/02
 02f162abb738e4ad46b9e4a459edcd20  ./tests_queue/00.a
-b953c297f49d94628675883b147840e3  ./test_packet_processor.cpp
+b4212f03f5483a80fda55fc17fd52a0a  ./test_packet_processor.cpp
 dbe78a249f5f52c144fa09a265d9414a  ./test_slist.cpp
-3b9ca54669e92a69d295d46801e895ea  ./CHANGELOG.txt
-5aaed68b707f3516abb0aaa122da9911  ./stack.hpp
+7fdcf9197bddca7302a244edd4fe3738  ./CHANGELOG.txt
+db77bb689d4c2b4bea761628cdcfaf46  ./stack.hpp
 bc972be19efe9a4c89533a58b6139b5a  ./tests_slist_cursor/08
 d9ce6216372418a5dc775f230beea8d6  ./tests_slist_cursor/00
 49f02d75efb3ba3f622c213b313f156b  ./tests_slist_cursor/08.a
