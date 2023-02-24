@@ -73,7 +73,7 @@ Queue<T>::enque(const T& new_it)
     size_t old_size = size();
 #endif
     //TODO
-    //Remenber we enque into the input stack.
+    //Remember: we enque into the input stack.
     //Hint: maybe you need to update the back item.
 
     //
@@ -90,9 +90,10 @@ Queue<T>::deque()
     size_t old_size = size();
 #endif
     //TODO
-    //Remenber we deque from the output stack and if the output stack is empty
-    //we need flush the input stack into the output stack first.
-
+    //Remember: we deque from the output stack and if the output stack is empty,
+    //we need to flush the input stack into the output stack first.
+    
+    
     //
     assert(size()==(old_size-1));
 }
@@ -107,7 +108,7 @@ Queue<T>::flush_input_to_output()
     T old_back = back();
 #endif
     //TODO
-    //Remenber: the first item pushed into output is
+    //Remember: the first item pushed into output is
     // the new back() of the queue.
 
     //
