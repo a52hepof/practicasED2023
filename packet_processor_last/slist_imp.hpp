@@ -20,7 +20,7 @@ SNode<T>::SNode (T const& it)
 {
     //TODO
     _item = it;
-    _next = nullptr;
+
     //
     assert(!has_next());
 }
@@ -64,7 +64,7 @@ bool SNode<T>::has_next() const
 {
     bool has = false;
     //TODO
-    has = (_next != nullptr);
+    has = _next != nullptr;
     //
     return has;
 }
@@ -114,9 +114,6 @@ template<class T>
 SList<T>::~SList()
 {
     //TODO
-
-
-
     //
 
 }
@@ -145,9 +142,9 @@ typename SList<T>::Ref SList<T>::create(std::istream& in) noexcept(false)
     in >> token;
 
     //TODO
-    //Hint: use std::istringstream to convert from "string" to template
+    //Hint: use std::istriongstream to convert from "string" to template
     // parameter T type.
-    // Throw std::runtime_error("Wrong input format.") exception when an input
+    // Throw std::runtime_error("Wrong input format.") exception if a input
     // format error was found.
 
     if(token == "[]"){
@@ -193,9 +190,10 @@ typename SList<T>::Ref SList<T>::create(std::istream& in) noexcept(false)
 
 
 
+  //
+  return list;
 
-    //
-    return list;
+
 }
 
 template<class T>
@@ -204,6 +202,7 @@ bool SList<T>::is_empty () const
     bool ret_val = true;
     //TODO
     ret_val = (_head ==nullptr);
+
     //
     return ret_val;
 }
@@ -236,7 +235,6 @@ T SList<T>::current() const
     T c;
     //TODO
     c = _cursor->item();
-
     //
     return c;
 }
@@ -269,20 +267,20 @@ bool SList<T>::has(T const& it) const
 {
     bool found = false;
     //TODO
-    //Hint: you can reuse SList::find() but you must remember to restore 
-    // the old the cursor position. In this way we assure not modify the state of the list.
+    //Hint: you can reuse SList::find() but remebering restore cursors to
+    //assure not modify the state of the list.
     //Hint: use const_cast<> to remove constness of this.
     auto aux = _head;
 
-        while(aux!=nullptr and aux->item() != it)
-        {
-          aux = aux->next();
-        }
+      while(aux!=nullptr and aux->item() != it)
+      {
+        aux = aux->next();
+      }
 
-        if(aux!=nullptr)
-        {
-          found = true;
-        }
+      if(aux!=nullptr)
+      {
+        found = true;
+      }
     //
     return found;
 }
@@ -323,6 +321,7 @@ void SList<T>::set_current(T const& new_v)
     assert(!is_empty());
     //TODO
     _cursor->set_item(new_v);
+
     //
     assert(current()==new_v);
 }
@@ -337,7 +336,6 @@ void SList<T>::push_front(T const& new_it)
     //TODO
     //Remeber to update current if current is in the head.
 
-
     if(is_empty())
     {
         _head = SNode<T>::create(new_it,nullptr);
@@ -351,6 +349,7 @@ void SList<T>::push_front(T const& new_it)
     }
 
     _size = _size +1;
+
 
     //
     assert(front()==new_it);
@@ -368,7 +367,6 @@ void SList<T>::insert(T const& new_it)
         old_item = current();
 #endif
     //TODO
-
     if(is_empty())
     {
         push_front(new_it);
@@ -401,6 +399,7 @@ void SList<T>::pop_front()
     _head = _head->next();
     _size = _size -1;
 
+
     //
     assert(is_empty() || head() == old_head_next);
     assert(size() == (old_size-1));
@@ -419,7 +418,6 @@ void SList<T>::remove()
         old_next=next();
 #endif
     //TODO
-
     //Case 1: current is the head.
     if(_cursor==_head)
     {
@@ -452,7 +450,6 @@ void SList<T>::remove()
 
     _size = _size -1;
 
-
     //
     assert(!old_has_next || current()==old_next);
     assert(size() == (old_size-1));
@@ -477,6 +474,7 @@ void SList<T>::goto_first()
     assert(!is_empty());
     //TODO
     _cursor = _head;
+
     //
     assert(current()==front());
 }
@@ -488,36 +486,7 @@ bool SList<T>::find(T const& it)
     bool found = false;
     //TODO
     auto anterior = _head;
-       _cursor = _head;
-
-     while(_cursor!=nullptr and current() != it)
-     {
-       anterior = _cursor;
-       _cursor = _cursor->next();
-     }
-
-     if(_cursor!=nullptr)
-     {
-       found = true;
-     }
-     else
-     {
-       _cursor = anterior;
-     }
-    //
-    assert(!found || current()==it);
-    assert(found || !has_next());
-    return found;
-}
-
-template<class T>
-bool SList<T>::find_next(T const& it)
-{
-    assert(has_next());
-    bool found = false;
-    //TODO
-    auto anterior = _cursor->next();
-    _cursor = _cursor->next();
+    _cursor = _head;
 
       while(_cursor!=nullptr and current() != it)
       {
@@ -532,6 +501,29 @@ bool SList<T>::find_next(T const& it)
       else
       {
         _cursor = anterior;
+      }
+    //
+    assert(!found || current()==it);
+    assert(found || !has_next());
+    return found;
+}
+
+template<class T>
+bool SList<T>::find_next(T const& it)
+{
+    assert(has_next());
+    bool found = false;
+    //TODO
+    _cursor = _cursor->next();
+
+      while(_cursor!=nullptr and current() != it)
+      {
+        _cursor = _cursor->next();
+      }
+
+      if(_cursor!=nullptr)
+      {
+        found = true;
       }
     //
     assert(!found || current()==it);
