@@ -22,7 +22,7 @@ int compute_height (typename BTree<T>::Ref t)
     assert(t != nullptr);
     int height = 0;
     //TODO
-
+    //hay que indicar el tipo <> también en la llamada recursiva
     //
     return height;
 }
