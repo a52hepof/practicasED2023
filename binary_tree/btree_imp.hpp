@@ -142,18 +142,46 @@ template<class T>
       //Remember: throw std:runtime_error exception with text
       //"Wrong input format." when an input format error is found.
       in >> token;
-      if (!in){
-          throw std::runtime_error("Wrong input format.");
-      }
+            if (!in)
+            {
+                throw std::runtime_error("Wrong input format.");
+            }
 
-      if(token=="["){
-        in >> token;
-        if(token.size()==1){
-            throw std::runtime_error("Wrong input format.");
-        }
+            if(token=="[")
+            {
+              in >> token;
 
+              if(token.size()==1 and !isdigit(token[0]))
+              {
+                throw std::runtime_error("Wrong input format.");
+              }
 
-      }
+              T it;
+              std::istringstream aux(token);
+              aux >> it;
+
+              tree->create_root(it);
+
+              auto left_subtree = create(in);
+
+              auto right_subtree = create(in);
+
+              tree->set_left(left_subtree);
+
+              tree->set_right(right_subtree);
+
+              in >> token;
+
+              if(token!="]")
+              {
+                throw std::runtime_error("Wrong input format.");
+              }
+              }
+            else if (token!="[]")
+            {
+                throw std::runtime_error("Wrong input format.");
+            }
+
       //
       return tree;
   }
@@ -163,7 +191,7 @@ template<class T>
   {
       bool ret_v = false;
       //TODO
-       ret_v = (_root != nullptr);
+       ret_v = (_root == nullptr);
       //
       return ret_v;
   }
