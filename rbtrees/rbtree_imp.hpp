@@ -528,10 +528,10 @@ int compute_height(typename RBTree<T>::Ref const &tree)
     int h = -1;
     // TODO
     // Hint: use the recursive implementation.
-    if (!tree->is_empty()){
+    //if (!tree->is_empty()){
 
-        s= 1 + compute_height<T>(tree ->left())+compute_height<T>(tree ->right());
-    }
+    //    h= 1 + compute_height<T>(tree ->left())+compute_height<T>(tree ->right());
+    //}
     //
     return h;
 }
