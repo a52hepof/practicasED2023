@@ -12,6 +12,7 @@
 #include <algorithm>
 #include <cmath>
 #include <cassert>
+#include <limits>
 
 #include "rbtree.hpp"
 
@@ -125,6 +126,7 @@ typename RBTNode<T>::Ref RBTNode<T>::child(int idx) const
     //
     assert(idx == 0 || node == right());
     assert(idx == 1 || node == left());
+ 
     return node;
 }
 

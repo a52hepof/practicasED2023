@@ -7,5 +7,9 @@ build-packet_processor-Desktop-Debug/
 build-packet_processor-Desktop-Debug
 build-packet_processor-Desktop-Release
 build-packet_processor-Desktop-Release/
-packet_processor-build/
+*.zip
+avl-tree-20230327T161659Z-001
+avl-tree
+build-rbtrees-Desktop-Debug
+build-binary_tree-Desktop-Debug/
 
