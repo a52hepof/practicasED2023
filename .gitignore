@@ -10,3 +10,6 @@ build-packet_processor-Desktop-Release/
 *.zip
 avl-tree-20230327T161659Z-001
 avl-tree
+build-rbtrees-Desktop-Debug
+build-binary_tree-Desktop-Debug/
+
