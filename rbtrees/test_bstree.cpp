@@ -45,12 +45,9 @@ main(int argc, const char* argv[])
         std::cout << std::unitbuf;
         while(input_file >> command)
         {
-<<<<<<< HEAD
-=======
             if (command == "" || command[0]=='#')
                 continue;
-                
->>>>>>> master
+
             if (command == "NODE_CREATE")
             {
                 int idx;
@@ -89,7 +86,7 @@ main(int argc, const char* argv[])
                 std::cout << "Attaching node idx " << c_idx
                           << " as left child of node idx " << p_idx
                           << std::endl;
-                node[p_idx]->set_left(node[c_idx]);                
+                node[p_idx]->set_left(node[c_idx]);
             }
             else if (command == "NODE_ATTACH_RIGHT")
             {
@@ -98,7 +95,7 @@ main(int argc, const char* argv[])
                 std::cout << "Attaching node idx " << c_idx
                           << " as right child of node idx " << p_idx
                           << std::endl;
-                node[p_idx]->set_right(node[c_idx]);                
+                node[p_idx]->set_right(node[c_idx]);
             }
             else if (command == "IS_EMPTY")
             {
@@ -199,11 +196,11 @@ main(int argc, const char* argv[])
             }
             else if (command == "HEIGHT")
             {
-               std::cout << "Tree's height: " << compute_height<int>(tree) << std::endl;               
+               std::cout << "Tree's height: " << compute_height<int>(tree) << std::endl;
             }
             else if (command == "SIZE")
             {
-               std::cout << "Tree's size: " << compute_size<int>(tree) << std::endl;               
+               std::cout << "Tree's size: " << compute_size<int>(tree) << std::endl;
             }
             else if (command == "CURRENT_LEVEL")
             {

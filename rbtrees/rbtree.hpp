@@ -1,186 +1,186 @@
-/**
- * @file rbtree.hpp
- *
- * CopyRight F. J. Madrid-Cuevas <fjmadrid@uco.es>
- *
- * Sólo se permite el uso de este código en la docencia de las asignaturas sobre
- * Estructuras de Datos de la Universidad de Córdoba.
- *
- * Está prohibido su uso para cualquier otro objetivo.
- */
-#pragma once
+    /**
+     * @file rbtree.hpp
+     *
+     * CopyRight F. J. Madrid-Cuevas <fjmadrid@uco.es>
+     *
+     * Sólo se permite el uso de este código en la docencia de las asignaturas sobre
+     * Estructuras de Datos de la Universidad de Córdoba.
+     *
+     * Está prohibido su uso para cualquier otro objetivo.
+     */
+    #pragma once
 
-#include <cassert>
-#include <exception>
-#include <functional>
-#include <memory>
-#include <iostream>
-#include <algorithm>
-#include <functional>
-#include <vector>
+    #include <cassert>
+    #include <exception>
+    #include <functional>
+    #include <memory>
+    #include <iostream>
+    #include <algorithm>
+    #include <functional>
+    #include <vector>
 
-/**
- * @brief a RBTree's Node.
- * Models a node of RBTree.
- */
-template <class T>
-class RBTNode
-{
-public:
-  /** @brief Define a shared reference to a RBTNode.
-   * Manages the storage of a pointer, providing a limited garbage-collection
-   * facility, possibly sharing that management with other objects.
-   * @see http://www.cplusplus.com/reference/memory/shared_ptr/
-   */
-  typedef std::shared_ptr<RBTNode<T>> Ref;
+    /**
+     * @brief a RBTree's Node.
+     * Models a node of RBTree.
+     */
+    template <class T>
+    class RBTNode
+    {
+    public:
+      /** @brief Define a shared reference to a RBTNode.
+       * Manages the storage of a pointer, providing a limited garbage-collection
+       * facility, possibly sharing that management with other objects.
+       * @see http://www.cplusplus.com/reference/memory/shared_ptr/
+       */
+      typedef std::shared_ptr<RBTNode<T>> Ref;
 
-  /**
-   * @brief Colors for a node of the RBTree.
-   */
-  typedef enum
-  {
-    BLACK = 0,
-    RED = 1
-  } Color;
+      /**
+       * @brief Colors for a node of the RBTree.
+       */
+      typedef enum
+      {
+        BLACK = 0,
+        RED = 1
+      } Color;
 
-  /** @name Life cicle.*/
-  /** @{*/
+      /** @name Life cicle.*/
+      /** @{*/
 
-  /**
-   * @brief Create a RBTNode.
-   * @param it is the node's item value.
-   * @param parent is a link to the parent node of this.
-   * @param left is a link to the left child node.
-   * @param right is a link to the right child node.
-   * @return a shared reference to node created.
-   */
-  static typename RBTNode<T>::Ref create(T const &it = T(),
-                                         RBTNode<T>::Color color = RED,
-                                         RBTNode<T>::Ref parent = nullptr,
-                                         RBTNode<T>::Ref left = nullptr,
-                                         RBTNode<T>::Ref right = nullptr);
-  /** @brief Destroy a RBTNode. **/
-  ~RBTNode();
+      /**
+       * @brief Create a RBTNode.
+       * @param it is the node's item value.
+       * @param parent is a link to the parent node of this.
+       * @param left is a link to the left child node.
+       * @param right is a link to the right child node.
+       * @return a shared reference to node created.
+       */
+      static typename RBTNode<T>::Ref create(T const &it = T(),
+                                             RBTNode<T>::Color color = RED,
+                                             RBTNode<T>::Ref parent = nullptr,
+                                             RBTNode<T>::Ref left = nullptr,
+                                             RBTNode<T>::Ref right = nullptr);
+      /** @brief Destroy a RBTNode. **/
+      ~RBTNode();
 
-  /** @}*/
+      /** @}*/
 
-  /** @name Observers.*/
-  /** @{*/
+      /** @name Observers.*/
+      /** @{*/
 
-  /** @brief Get the data item.*/
-  T item() const;
+      /** @brief Get the data item.*/
+      T item() const;
 
-  /** @brief get the parent.*/
-  RBTNode<T>::Ref parent() const;
+      /** @brief get the parent.*/
+      RBTNode<T>::Ref parent() const;
 
-  /** @brief get the left child.*/
-  RBTNode<T>::Ref left() const;
+      /** @brief get the left child.*/
+      RBTNode<T>::Ref left() const;
 
-  /** @brief get the right child.*/
-  RBTNode<T>::Ref right() const;
+      /** @brief get the right child.*/
+      RBTNode<T>::Ref right() const;
 
-  /**
-   * @brief get one of the two childs.
-   * @param idx specifies the what child: 0->left, 1->right.
-   * @pre idx in {0,1}
-   * @post idx==0 || child(idx)==right()
-   * @post idx==1 || child(idx)==left()
-   */
-  RBTNode<T>::Ref child(int idx) const;
+      /**
+       * @brief get one of the two childs.
+       * @param idx specifies the what child: 0->left, 1->right.
+       * @pre idx in {0,1}
+       * @post idx==0 || child(idx)==right()
+       * @post idx==1 || child(idx)==left()
+       */
+      RBTNode<T>::Ref child(int idx) const;
 
-  /** @brief get node's color. */
-  RBTNode<T>::Color color() const;
+      /** @brief get node's color. */
+      RBTNode<T>::Color color() const;
 
-  /** 
-   * @brief Return "this" as a reference.   
-   * @return a const reference to this node.
-  */
-  const Ref& This() const;
+      /**
+       * @brief Return "this" as a reference.
+       * @return a const reference to this node.
+      */
+      const Ref& This() const;
 
-  /** 
-   * @brief Return "this" as a reference.   
-   * @return a reference to this node.
-  */
-  Ref This();
+      /**
+       * @brief Return "this" as a reference.
+       * @return a reference to this node.
+      */
+      Ref This();
 
-  /** @}*/
+      /** @}*/
 
-  /** @name Modifiers.*/
-  /** @{*/
+      /** @name Modifiers.*/
+      /** @{*/
 
-  /**
-   * @brief Set the data item.
-   * @post item() == new_it
-   */
-  void set_item(const T &new_it);
+      /**
+       * @brief Set the data item.
+       * @post item() == new_it
+       */
+      void set_item(const T &new_it);
 
-  /**
-   * @brief Set the parent.
-   * @post parent()==new_parent
-   * @post !new_parent || (new_parent->left()==This() || new_parent->right()==This())
-   */
-  void set_parent(Ref new_parent);
+      /**
+       * @brief Set the parent.
+       * @post parent()==new_parent
+       * @post !new_parent || (new_parent->left()==This() || new_parent->right()==This())
+       */
+      void set_parent(Ref new_parent);
 
-  /**
-   * @brief Set the left child.
-   * @post left()==new_child
-   * @post !new_child || new_child.parent()==This()
-   * @warning collateral effect: change new_child parent link to this.
-   */
-  void set_left(Ref new_child);
+      /**
+       * @brief Set the left child.
+       * @post left()==new_child
+       * @post !new_child || new_child.parent()==This()
+       * @warning collateral effect: change new_child parent link to this.
+       */
+      void set_left(Ref new_child);
 
-  /**
-   * @brief Set the right child.
-   * @post right()==new_child
-   * @post !new_child || new_child.parent()==This()
-   * @warning collateral effect: change new_child parent link to this.
-   */
-  void set_right(Ref new_child);
+      /**
+       * @brief Set the right child.
+       * @post right()==new_child
+       * @post !new_child || new_child.parent()==This()
+       * @warning collateral effect: change new_child parent link to this.
+       */
+      void set_right(Ref new_child);
 
-  /**
-   * @brief Set one of the two childs.
-   * @param idx specifies what child: 0->left, 1->right.
-   * @param new_child is the new to child to attach.
-   * @pre idx in {0,1}
-   * @post idx==0 || new_child==right()
-   * @post idx==1 || new_child==left()
-   * @post !new_child || new_child.parent()==This()
-   * @warning collateral effect: change new_child parent link to this.
-   */
-  void set_child(int idx, RBTNode<T>::Ref new_child);
+      /**
+       * @brief Set one of the two childs.
+       * @param idx specifies what child: 0->left, 1->right.
+       * @param new_child is the new to child to attach.
+       * @pre idx in {0,1}
+       * @post idx==0 || new_child==right()
+       * @post idx==1 || new_child==left()
+       * @post !new_child || new_child.parent()==This()
+       * @warning collateral effect: change new_child parent link to this.
+       */
+      void set_child(int idx, RBTNode<T>::Ref new_child);
 
-  /**
-   * @brief Set the color of the node.
-   * @param[in] new_color.
-   * @post color()==new_color
-   */
-  void set_color(Color new_color);
+      /**
+       * @brief Set the color of the node.
+       * @param[in] new_color.
+       * @post color()==new_color
+       */
+      void set_color(Color new_color);
 
-protected:
+    protected:
 
-/**
-   * @brief Create a RBTNode.
-   * @param it is the node's item value.
-   * @param color is the color of the node.
-   * @param parent is a link to the parent node of this.
-   * @param left is a link to the left child node.
-   * @param right is a link to the right child node.
-   * @return a shared reference to node created.
-   */
-  RBTNode(T const &it = T(), RBTNode<T>::Color color = RED, RBTNode<T>::Ref parent = nullptr,
-          RBTNode<T>::Ref left = nullptr, RBTNode<T>::Ref right = nullptr);
+    /**
+       * @brief Create a RBTNode.
+       * @param it is the node's item value.
+       * @param color is the color of the node.
+       * @param parent is a link to the parent node of this.
+       * @param left is a link to the left child node.
+       * @param right is a link to the right child node.
+       * @return a shared reference to node created.
+       */
+      RBTNode(T const &it = T(), RBTNode<T>::Color color = RED, RBTNode<T>::Ref parent = nullptr,
+              RBTNode<T>::Ref left = nullptr, RBTNode<T>::Ref right = nullptr);
 
-  // TODO
-  // Give a representation.
-  T item_;                               ///< El valor del nodo.
-  Color color_;                          ///< El color del nodo.
-  RBTNode<T>::Ref parent_;
-  RBTNode<T>::Ref left_;
-  RBTNode<T>::Ref right_;
-  
-  //
-  RBTNode<T>::Ref this_; //"this" like a shared reference.
-};
+      // TODO
+      // Give a representation.
+      T item_;                               ///< El valor del nodo.
+      Color color_;                          ///< El color del nodo.
+      RBTNode<T>::Ref parent_;
+      RBTNode<T>::Ref left_;
+      RBTNode<T>::Ref right_;
+
+      //
+      RBTNode<T>::Ref this_; //"this" like a shared reference.
+    };
 
 /**
  * @brief ADT RBTree.
